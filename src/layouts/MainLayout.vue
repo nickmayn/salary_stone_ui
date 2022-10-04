@@ -24,15 +24,9 @@
 
     <q-footer bordered class="bg-primary text-white">
       <div class="row no-wrap shadow-1">
-      <q-toolbar class="col-11">
+      <q-toolbar class="col-12">
         <q-btn flat round dense icon="copyright" />
           <div>2022 George Mason University. All Rights Reserved.</div>
-      </q-toolbar>
-      <q-toolbar class="col-1">
-      <router-view>test</router-view>
-        <q-btn flat round dense icon="menu" />
-        <q-btn flat round dense icon="menu" />
-        <q-btn flat round dense icon="menu" />
       </q-toolbar>
       </div>
     </q-footer>
