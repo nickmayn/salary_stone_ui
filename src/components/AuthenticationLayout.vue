@@ -16,7 +16,7 @@
             <q-btn unelevated color="secondary" size="lg" class="full-width" label="Register" />
           </q-card-actions>
           <q-card-section class="text-center q-pa-xl">
-            <p class="text-grey-6">Not reigistered? Created an Account</p>
+            <p class="text-grey-6">Not registered? Created an Account</p>
           </q-card-section>
         </q-card>
       </div>

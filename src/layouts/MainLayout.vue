@@ -16,6 +16,7 @@
 
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
       <!-- drawer content -->
+      <input-form></input-form>
     </q-drawer>
 
     <q-page-container>
@@ -36,6 +37,7 @@
 
 <script>
 import { ref } from 'vue'
+import InputForm from '../components/InputForm.vue';
 
 export default {
   setup () {
@@ -47,6 +49,9 @@ export default {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
     }
+  },
+  components: {
+    InputForm
   }
 }
 </script>
