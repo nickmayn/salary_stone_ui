@@ -20,7 +20,10 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <q-page class="column justify-start">
+        <router-view />
+        
+      </q-page>
     </q-page-container>
 
     <q-footer bordered class="bg-primary text-white">
