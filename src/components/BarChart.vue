@@ -1,5 +1,6 @@
 <template>
   <VueApexCharts type="bar" :options="chartOptions" :series="series" title="Metrics" :width="600"/>
+  <q-btn color="white" text-color="black" label="Test" @click="testMethod" />
 </template>
 
 <script lang="ts">
@@ -7,12 +8,18 @@ import {
   defineComponent,
 } from 'vue';
 import VueApexCharts from 'vue3-apexcharts'
+import { useSalaryApi } from 'src/store/api';
 
 
 export default defineComponent({
   name: 'BarChart',
   setup() {
+      const {
+        salaryApi
+      } = useSalaryApi();
+
       return {
+      salaryApi,
       chartOptions: {
         chart: {
           id: "vuechart-example",
@@ -40,6 +47,20 @@ export default defineComponent({
         },
       ],
     };
+  },
+  methods: {
+    async testMethod(): Promise<void> {
+      try {
+        console.log(this.salaryApi);
+        const resp = await this.salaryApi.testSalaryTestGet();
+        const { data } = resp;
+        const { result } = data;
+        console.log(result);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
   },
   components: {
       VueApexCharts
