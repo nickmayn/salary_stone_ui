@@ -1,5 +1,5 @@
 <template>
-  <VueApexCharts type="bar" :options="chartOptions" :series="series" title="Metrics" :width="600" ref="salaryChart"/>
+  <VueApexCharts type="radar" :options="chartOptions" :series="series" title="Skill Popularity Breakdown" :width="600" ref="salaryChart"/>
 </template>
 
 <script lang="ts">
@@ -12,7 +12,7 @@ import { useApi } from 'src/store/api';
 
 
 export default defineComponent({
-  name: 'BarChart',
+  name: 'RadarChart',
   setup() {
       const {
         salaryApi
@@ -21,25 +21,17 @@ export default defineComponent({
       return {
       salaryApi,
       chartOptions: {
+        dataLabels: {
+              enabled: true
+        },
+        colors: ['#29b027'],
         xaxis: {
-          categories: ["50K - 59K", "60K - 69K", "70K - 79K", "80K - 89K", "90K - 99K", "100K - 109K", "110K - 119K", "120K - 129K"],
+          categories: ["python", "tensorflow", "pytorch", "simulation", "matlab", "machine learning", "C++", "R"],
         },
       },
       series: [
         {
-          name: "series-1",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-2",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-3",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-4",
+          name: "Skill Breakdown",
           data: [50, 40, 35, 50, 49, 60, 70, 91],
         },
       ],
