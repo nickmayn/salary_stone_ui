@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import AuthenticationLayout from '../components/AuthenticationLayout.vue';
+import AuthenticationLayout from '../layouts/AuthenticationLayout.vue';
 import { defineComponent } from 'vue';
 
 

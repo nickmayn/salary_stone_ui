@@ -4,7 +4,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [{ path: '', component: () => import('pages/Summary.vue') }],
   },
 
   // Always leave this as last one,
@@ -16,6 +16,21 @@ const routes: RouteRecordRaw[] = [
   {
     path:'/login',
     component: () => import('pages/Login.vue')
+  },
+  {
+    path: '/matchmaker',
+    component: () => import('layouts/MatchMakerLayout.vue'),
+    children: [{ path: '', component: () => import('pages/MatchMaker.vue') }]
+  },
+  {
+    path: '/unitprice',
+    component: () => import('layouts/UnitPriceLayout.vue'),
+    children: [{ path: '', component: () => import('pages/UnitPrice.vue') }]
+  },
+  {
+    path: '/levelup',
+    component: () => import('layouts/LevelUpLayout.vue'),
+    children: [{ path: '', component: () => import('pages/LevelUp.vue') }]
   }
 ];
 

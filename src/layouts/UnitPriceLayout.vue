@@ -18,16 +18,18 @@
         <q-route-tab to="/matchmaker" label="Match Maker" icon="favorite" />
       </q-tabs>
       </q-toolbar>
+
     </q-header>
 
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-      <summaryForm></summaryForm>
+      <!-- drawer content -->
+      <job-description-form></job-description-form>
     </q-drawer>
-
 
     <q-page-container>
       <q-page class="column justify-start">
         <router-view />
+        
       </q-page>
     </q-page-container>
 
@@ -48,7 +50,7 @@
 
 <script>
 import { ref } from 'vue'
-import summaryForm from '../components/summaryForm.vue';
+import jobDescriptionForm from '../components/jobDescriptionForm.vue';
 
 export default {
   setup () {
@@ -62,7 +64,7 @@ export default {
     }
   },
   components: {
-    summaryForm
+    jobDescriptionForm
   }
 }
 </script>

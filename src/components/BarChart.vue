@@ -1,14 +1,15 @@
 <template>
-  <VueApexCharts type="bar" :options="chartOptions" :series="series" title="Metrics" :width="600"/>
+  <VueApexCharts type="bar" :options="chartOptions" :series="series" title="Metrics" :width="600" ref="salaryChart"/>
   <q-btn color="white" text-color="black" label="Test" @click="testMethod" />
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
+  ref,
 } from 'vue';
 import VueApexCharts from 'vue3-apexcharts'
-import { useSalaryApi } from 'src/store/api';
+import { useApi } from 'src/store/api';
 
 
 export default defineComponent({
@@ -16,14 +17,11 @@ export default defineComponent({
   setup() {
       const {
         salaryApi
-      } = useSalaryApi();
+      } = useApi();
 
       return {
       salaryApi,
       chartOptions: {
-        chart: {
-          id: "vuechart-example",
-        },
         xaxis: {
           categories: ["50K - 59K", "60K - 69K", "70K - 79K", "80K - 89K", "90K - 99K", "100K - 109K", "110K - 119K", "120K - 129K"],
         },
@@ -51,11 +49,12 @@ export default defineComponent({
   methods: {
     async testMethod(): Promise<void> {
       try {
-        console.log(this.salaryApi);
         const resp = await this.salaryApi.testSalaryTestGet();
         const { data } = resp;
-        const { result } = data;
-        console.log(result);
+
+        this.$refs.salaryChart.updateOptions({xaxis: {
+          categories: data,
+        }});
       } catch (e) {
         console.error(e);
       }

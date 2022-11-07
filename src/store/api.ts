@@ -1,5 +1,9 @@
 import { reactive, toRefs } from 'vue';
-import { SalaryApi } from 'src/generated/salary';
+import {
+  Configuration,
+  SalaryApi,
+} from 'src/generated/salary';
+
   
 const state = reactive({
   salaryApi: new SalaryApi(),
@@ -12,6 +16,17 @@ export function useSalaryApi() {
 
   return {
     ...toRefs(state)
+  };
+}
+
+
+export function useApi() {
+  const token = localStorage.getItem('token') || '';
+  const apiConf = new Configuration({ basePath: '/api', accessToken: token });
+  state.salaryApi = new SalaryApi(apiConf);
+
+  return {
+    ...toRefs(state),
   };
 }
 
