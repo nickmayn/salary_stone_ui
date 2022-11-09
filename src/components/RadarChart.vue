@@ -9,6 +9,7 @@ import {
 } from 'vue';
 import VueApexCharts from 'vue3-apexcharts'
 import { useApi } from 'src/store/api';
+import { useUnitState } from 'src/store/unitprice';
 
 
 export default defineComponent({
@@ -17,10 +18,18 @@ export default defineComponent({
       const {
         salaryApi
       } = useApi();
+      const {
+        extractedSkills
+      } = useUnitState()
 
       return {
       salaryApi,
+      extractedSkills,
       chartOptions: {
+        title: {
+              text: 'Skill Breakdown by Frequency Within Data',
+              align: 'center'
+        },
         dataLabels: {
               enabled: true
         },
@@ -40,17 +49,18 @@ export default defineComponent({
   methods: {
     async testMethod(): Promise<void> {
       try {
-        const resp = await this.salaryApi.testSalaryTestGet();
+        const resp = await this.extractedSkills();
         const { data } = resp;
-
-        this.$refs.salaryChart.updateOptions({xaxis: {
+        if (data !== null) {
+          this.$refs.salaryChart.updateOptions({xaxis: {
           categories: data,
         }});
+        }
+        console.log(data);
       } catch (e) {
         console.error(e);
       }
     }
-
   },
   components: {
       VueApexCharts

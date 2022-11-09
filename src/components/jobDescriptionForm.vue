@@ -2,7 +2,7 @@
     <div class="text-center">
     <q-form class="q-gutter-md q-pa-lg">
         <q-input square filled clearable v-model="this.jobdesc" label="Paste Job Description" class="q-py-md" type="textarea" rows="30" overflow="hidden"/>
-        <q-btn color = "accent" align="center" @click="predictSalary(this.jobdesc)">Run Analysis</q-btn>
+        <q-btn color = "accent" align="center" @click="submitJob()">Run Analysis</q-btn>
     </q-form>
     </div>
 </template>
@@ -21,13 +21,21 @@ export default defineComponent({
       const {
           jobdesc,
           predictSalary,
+          getSalaryStats,
       } = useUnitState();
       return {
           salaryApi,
           jobdesc,
-          predictSalary
+          predictSalary,
+          getSalaryStats
       }
   },
+  methods: {
+      submitJob() {
+          this.getSalaryStats();
+          this.predictSalary(this.jobdesc);
+      }
+  }
 });
 </script>
 

@@ -21,25 +21,29 @@ export default defineComponent({
       return {
       salaryApi,
       chartOptions: {
+        title: {
+              text: 'Distribution of Salary by Skill',
+              align: 'center'
+        },
         xaxis: {
           categories: ["50K - 59K", "60K - 69K", "70K - 79K", "80K - 89K", "90K - 99K", "100K - 109K", "110K - 119K", "120K - 129K"],
         },
       },
       series: [
         {
-          name: "series-1",
+          name: "python",
+          data: [20, 40, 60, 50, 49, 60, 70, 91],
+        },
+        {
+          name: "tensorflow",
+          data: [10, 80, 50, 53, 40, 6, 10, 20],
+        },
+        {
+          name: "pytorch",
           data: [50, 40, 35, 50, 49, 60, 70, 91],
         },
         {
-          name: "series-2",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-3",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-4",
+          name: "modeling",
           data: [50, 40, 35, 50, 49, 60, 70, 91],
         },
       ],
