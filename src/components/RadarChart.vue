@@ -1,5 +1,5 @@
 <template>
-  <VueApexCharts type="radar" :options="chartOptions" :series="series" title="Skill Popularity Breakdown" :width="600" ref="salaryChart"/>
+  <VueApexCharts type="radar" :options="chartOptions" :series="extractedSkills" title="Skill Popularity Breakdown" :width="600" ref="salaryChart"/>
 </template>
 
 <script lang="ts">
@@ -38,12 +38,6 @@ export default defineComponent({
           categories: ["python", "tensorflow", "pytorch", "simulation", "matlab", "machine learning", "C++", "R"],
         },
       },
-      series: [
-        {
-          name: "Skill Breakdown",
-          data: [50, 40, 35, 50, 49, 60, 70, 91],
-        },
-      ],
     };
   },
   methods: {

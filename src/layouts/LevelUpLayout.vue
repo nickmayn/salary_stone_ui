@@ -16,6 +16,7 @@
         <q-route-tab to="/unitprice" label="Unit Price" icon="attach_money" />
         <q-route-tab to="/levelup" label="Level Up" icon="show_chart"/>
         <q-route-tab to="/matchmaker" label="Match Maker" icon="favorite" />
+        <q-icon name="account_circle" size='md'></q-icon>
       </q-tabs>
       </q-toolbar>
     </q-header>

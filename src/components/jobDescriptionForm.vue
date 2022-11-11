@@ -21,12 +21,20 @@ export default defineComponent({
       const {
           jobdesc,
           predictSalary,
+          extractSkills,
+          extractedSkills,
+          extractSkillSalaryBins,
+          extractSkillSimilarity,
           getSalaryStats,
       } = useUnitState();
       return {
           salaryApi,
           jobdesc,
           predictSalary,
+          extractSkills,
+          extractedSkills,
+          extractSkillSimilarity,
+          extractSkillSalaryBins,
           getSalaryStats
       }
   },
@@ -34,6 +42,9 @@ export default defineComponent({
       submitJob() {
           this.getSalaryStats();
           this.predictSalary(this.jobdesc);
+          this.extractSkills(this.jobdesc);
+          this.extractSkillSalaryBins(this.jobdesc);
+          this.extractSkillSimilarity(this.jobdesc);
       }
   }
 });
