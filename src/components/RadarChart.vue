@@ -27,7 +27,7 @@ export default defineComponent({
       extractedSkills,
       chartOptions: {
         title: {
-              text: 'Skill Breakdown by Frequency Within Data',
+              text: 'Skill Breakdown by Frequency Percentage Within Data',
               align: 'center'
         },
         dataLabels: {
@@ -35,8 +35,8 @@ export default defineComponent({
         },
         colors: ['#29b027'],
         xaxis: {
-          categories: ["python", "tensorflow", "pytorch", "simulation", "matlab", "machine learning", "C++", "R"],
-        },
+          type: 'category'
+        }
       },
     };
   },

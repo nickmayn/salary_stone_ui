@@ -27,7 +27,17 @@ export default defineComponent({
               align: 'center'
         },
         xaxis: {
-          categories: ["50K - 59K", "60K - 69K", "70K - 79K", "80K - 89K", "90K - 99K", "100K - 109K", "110K - 119K", "120K - 129K"],
+          categories: ['0-50k',
+ '50k-64k',
+ '64k-79k',
+ '79k-93k',
+ '93k-108k',
+ '108k-122k',
+ '122k-137k',
+ '137k-151k',
+ '151k-166k',
+ '166k-180k',
+ '180k-inf'],
         },
       },
     };

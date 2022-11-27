@@ -7,10 +7,7 @@
     </q-card-section>
     <q-card-section>
     <q-card-section>
-        <div class="text-h4">Average Salary: ${{ avgSalary }}</div>
-      </q-card-section>
-      <q-card-section>
-      <div class="text-h4">Standard Deviation Salary: ${{ stdSalary }}</div>
+        <div class="text-h6">expected salary is not to be used as ground truth just an estimate.</div>
       </q-card-section>
     </q-card-section>
 </q-card>

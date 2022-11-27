@@ -13,7 +13,34 @@ const state = reactive({
     stdSalary: null,
     extractedSkills: [],
     skillBins: [],
-    similarity: {vals: [], labs: []}
+    similarity: {vals: []},
+    chartOptionsRadial: {
+      chart: {
+        height: 350,
+        type: 'radialBar',
+      },
+      title: {
+        text: 'Skillset Match Percentage by Job Title',
+        align: 'center'
+      },
+      plotOptions: {
+        radialBar: {
+          dataLabels: {
+            name: {
+              fontSize: '22px',
+            },
+            value: {
+              fontSize: '16px',
+            },
+            total: {
+              show: true,
+              label: 'Average Similarity Score',
+            }
+          }
+        }
+      },
+      labels: []
+    },
 });
 
 export async function predictSalary(jobdesc: string) {
@@ -26,67 +53,51 @@ export async function extractSkills(jobdesc: string) {
   // // const resp = await salaryApi.value.skillsSalarySkillsPost(jobdesc);
   // const { data } = resp;
   // state.extractedSkills = data;
-  console.log(jobdesc);
-  if (jobdesc === 'foo') {
-    state.extractedSkills = [
-      {
-        name: "Skill Breakdown",
-        data: [100, 80, 95, 50, 59, 40, 100, 99],
-      },
-    ];
-  }
-  else {
-    state.extractedSkills = [
-      {
-        name: "Skill Breakdown",
-        data: [10, 80, 45, 10, 29, 40, 100, 19],
-      },
-    ];
-  }
+  const resp = await salaryApi.value.skillsSalarySkillsPost(jobdesc);
+  const { data } = resp;
+  state.extractedSkills = [
+    {
+      name: "Skill Breakdown",
+      data: data
+    }
+  ]
+  // if (jobdesc === 'foo') {
+  //   state.extractedSkills = [
+  //     {
+  //       name: "Skill Breakdown",
+  //       data: [100, 80, 95, 50, 59, 40, 100, 99],
+  //     },
+  //   ];
+  // }
+  // else {
+  //   state.extractedSkills = [
+  //     {
+  //       name: "Skill Breakdown",
+  //       data: [10, 80, 45, 10, 29, 40, 100, 19],
+  //     },
+  //   ];
+  // }
 }
 
-export async function extractSkillSalaryBins(skills: any) {
-  if (skills === 'foo') {
-    state.skillBins = [
-      {
-        name: "python",
-        data: [20, 40, 60, 50, 49, 60, 70, 91],
-      },
-      {
-        name: "tensorflow",
-        data: [10, 80, 50, 53, 40, 6, 10, 20],
-      },
-      {
-        name: "pytorch",
-        data: [50, 40, 35, 50, 49, 60, 70, 91],
-      },
-      {
-        name: "modeling",
-        data: [50, 40, 35, 50, 49, 60, 70, 91],
-      },
-    ]
-  } else {
-    state.skillBins = [
-      {
-        name: "python",
-        data: [20, 40, 60, 50, 49, 60, 70, 91],
-      },
-      {
-        name: "tensorflow",
-        data: [10, 80, 50, 53, 40, 6, 10, 20],
-      },
-    ]
-  }
+export async function extractSkillSalaryBins(jobdesc: string) {
+  const resp = await salaryApi.value.skillsalbinSalarySkillsalbinGet(jobdesc);
+  const { data } = resp;
+  state.skillBins = data;
 }
 
 export async function extractSkillSimilarity(jobdesc: any) {
-  if (jobdesc === 'foo') {
-    state.similarity.vals = [44, 55, 67, 83, 90, 30]
-    state.similarity.labs = ['Java Developer', 'UI Developer', 'Machine Learning Engineer', 'Full Stack Engineer', 'Data Scientist', 'Data Analyst']
-  } else {
-    state.similarity.vals = [44, 55, 67]
-    state.similarity.labs = ['Full Stack Engineer', 'Data Scientist', 'Data Analyst']
-  }
+  const resp = await salaryApi.value.skillsimSalarySkillsimGet(jobdesc);
+  const { data } = resp;
+  state.similarity.vals = data.score;
+  state.chartOptionsRadial.labels = data.title;
+
+  // if (jobdesc === 'foo') {
+  //   state.similarity.vals = [44, 55, 67, 83, 90, 30]
+  //   state.similarity.labs = ['Java Developer', 'UI Developer', 'Machine Learning Engineer', 'Full Stack Engineer', 'Data Scientist', 'Data Analyst']
+  // } else {
+  //   state.similarity.vals = [44, 55, 67]
+  //   state.similarity.labs = ['Full Stack Engineer', 'Data Scientist', 'Data Analyst']
+  // }
 }
 
 export async function getSalaryStats() {
