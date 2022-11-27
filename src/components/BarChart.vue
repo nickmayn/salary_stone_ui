@@ -26,6 +26,9 @@ export default defineComponent({
               text: 'Distribution of Salary by Skill',
               align: 'center'
         },
+        dataLabels: {
+              enabled: false
+        },
         xaxis: {
           categories: ['0-50k',
  '50k-64k',

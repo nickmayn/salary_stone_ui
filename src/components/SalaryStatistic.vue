@@ -27,7 +27,12 @@ export default defineComponent({
   },
   components: {
       VueApexCharts
-  }
+  },
+  mounted() {
+    this.$nextTick(() => {
+        window.dispatchEvent(new Event('resize'));
+    });
+}
 
 });
 </script>

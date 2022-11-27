@@ -30,9 +30,9 @@ export default defineComponent({
               text: 'Skill Breakdown by Frequency Percentage Within Data',
               align: 'center'
         },
-        dataLabels: {
-              enabled: true
-        },
+        // dataLabels: {
+        //       enabled: true
+        // },
         colors: ['#29b027'],
         xaxis: {
           type: 'category'

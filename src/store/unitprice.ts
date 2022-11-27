@@ -89,8 +89,10 @@ export async function extractSkillSimilarity(jobdesc: any) {
   const resp = await salaryApi.value.skillsimSalarySkillsimGet(jobdesc);
   const { data } = resp;
   state.similarity.vals = data.score;
-  state.chartOptionsRadial.labels = data.title;
-
+  console.log(data.title);
+  state.chartOptionsRadial = {...this.chartOptionsRadial, ...{
+    labels: data.title
+}}
   // if (jobdesc === 'foo') {
   //   state.similarity.vals = [44, 55, 67, 83, 90, 30]
   //   state.similarity.labs = ['Java Developer', 'UI Developer', 'Machine Learning Engineer', 'Full Stack Engineer', 'Data Scientist', 'Data Analyst']
