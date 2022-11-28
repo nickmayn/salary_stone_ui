@@ -49,7 +49,7 @@
 
 <script>
 import { ref } from 'vue'
-import resumeForm from '../components/resumeForm.vue';
+import resumeForm from '../components/levelup/ResumeForm.vue';
 
 export default {
   setup () {

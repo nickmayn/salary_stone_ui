@@ -51,7 +51,7 @@
 
 <script>
 import { ref } from 'vue'
-import jobDescriptionForm from '../components/jobDescriptionForm.vue';
+import jobDescriptionForm from '../components/unitprice/JobDescriptionForm.vue';
 
 export default {
   setup () {

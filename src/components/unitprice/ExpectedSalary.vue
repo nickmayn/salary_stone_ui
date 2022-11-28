@@ -1,6 +1,6 @@
 <template>
 <q-card flat>
-    <div class="text-h4">Expected Salary:</div>
+    <q-card-section><div class="text-h6">Expected Salary:</div></q-card-section>
     <q-card-section>
     <div class="row text-white"> a</div>
     <div align="center" class="text-h2 text-green">${{ expectedSalary }}</div>

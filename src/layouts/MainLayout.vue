@@ -49,7 +49,7 @@
 
 <script>
 import { ref } from 'vue'
-import summaryForm from '../components/summaryForm.vue';
+import summaryForm from '../components/summary/SummaryForm.vue';
 
 export default {
   setup () {
