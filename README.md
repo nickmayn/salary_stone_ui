@@ -1,6 +1,23 @@
-# Quasar App (final-project)
+# Salary Stone UI
 
-A Quasar Project
+A salary analysis and prediction tool built with [Quasar](https://quasar.dev/) (Vue 3). It connects to a backend API to predict expected salaries, extract skills from job descriptions and resumes, and recommend skills for salary growth.
+
+## Screenshots
+
+### Login
+![Login](screenshots/login.png)
+
+### Summary
+![Summary](screenshots/summary.png)
+
+### Unit Price
+![Unit Price](screenshots/unitprice.png)
+
+### Level Up
+![Level Up](screenshots/levelup.png)
+
+### Match Maker
+![Match Maker](screenshots/matchmaker.png)
 
 ## Install the dependencies
 ```bash
