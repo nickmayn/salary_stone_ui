@@ -7,13 +7,32 @@ const {
   } = useApi();
 
 const state = reactive({
-    jobdesc: '',
-    expectedSalary: null,
-    avgSalary: null,
-    stdSalary: null,
-    extractedSkills: [],
-    skillBins: [],
-    similarity: {vals: []},
+    jobdesc: 'Senior Software Engineer with 5 years of experience in Python, JavaScript, SQL, Machine Learning, Docker, and React.',
+    expectedSalary: 95000,
+    avgSalary: 87500,
+    stdSalary: 12000,
+    extractedSkills: [
+      {
+        name: 'Skill Breakdown',
+        data: [
+          { x: 'Python', y: 68 },
+          { x: 'SQL', y: 54 },
+          { x: 'JavaScript', y: 45 },
+          { x: 'Machine Learning', y: 38 },
+          { x: 'Docker', y: 32 },
+          { x: 'React', y: 41 },
+          { x: 'AWS', y: 29 },
+          { x: 'Java', y: 22 },
+        ]
+      }
+    ],
+    skillBins: [
+      {
+        name: 'Job Count',
+        data: [3, 8, 22, 41, 73, 95, 88, 62, 40, 21, 11]
+      }
+    ],
+    similarity: { vals: [78, 65, 82, 55, 70] },
     chartOptionsRadial: {
       chart: {
         height: 350,
@@ -39,7 +58,7 @@ const state = reactive({
           }
         }
       },
-      labels: []
+      labels: ['Software Eng', 'Data Scientist', 'ML Engineer', 'Backend Dev', 'Full Stack Dev']
     },
 });
 

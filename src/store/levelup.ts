@@ -7,10 +7,27 @@ const {
 
 const state = reactive({
     resume: '',
-    expectedSalary: '',
+    expectedSalary: '92,500',
     loading: false,
-    recRows: [],
-    skills: []
+    recRows: [
+      { recskills: 'Kubernetes', recskillsalincrease: 14.2 },
+      { recskills: 'Apache Spark', recskillsalincrease: 12.8 },
+      { recskills: 'TensorFlow', recskillsalincrease: 11.5 },
+      { recskills: 'Terraform', recskillsalincrease: 10.9 },
+      { recskills: 'Scala', recskillsalincrease: 9.7 },
+      { recskills: 'Go', recskillsalincrease: 8.3 },
+      { recskills: 'Rust', recskillsalincrease: 7.6 },
+    ],
+    skills: [
+      { x: 'Python' },
+      { x: 'SQL' },
+      { x: 'JavaScript' },
+      { x: 'React' },
+      { x: 'Docker' },
+      { x: 'Machine Learning' },
+      { x: 'Git' },
+      { x: 'REST APIs' },
+    ]
 });
 
 export async function extractSkills(resume: string) {
